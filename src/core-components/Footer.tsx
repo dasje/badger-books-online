@@ -84,14 +84,12 @@ export default function Footer() {
                       "aria-label": "Enter your email address",
                     },
                   }}
-                  sx={{ width: "250px" }}
-                  color="accent"
+                  sx={{ width: "250px", color: "accent" }}
                 />
                 <Button
                   variant="text"
-                  color="accent"
                   size="small"
-                  sx={{ flexShrink: 0 }}
+                  sx={{ flexShrink: 0, color: "accent" }}
                 >
                   Subscribe
                 </Button>
@@ -194,11 +192,10 @@ export default function Footer() {
             sx={{ justifyContent: "left", color: "text.secondary" }}
           >
             <IconButton
-              color="accent"
               size="small"
               href="https://github.com/mui"
               aria-label="GitHub"
-              sx={{ alignSelf: "center" }}
+              sx={{ alignSelf: "center", color: "accent" }}
             >
               <GitHubIcon />
             </IconButton>

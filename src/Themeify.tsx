@@ -20,41 +20,45 @@ declare module "@mui/material/styles" {
   }
 }
 
+const { palette } = createTheme();
+
 const theme = createTheme({
   typography: {
     fontFamily: ["Grenze"].join(","),
   },
   palette: {
-    siteBackground: {
-      main: "#0d1b2a",
-      light: "#415a77",
-      dark: "#1b263b",
-      contrastText: "#242105",
-    },
-    accent: {
-      main: "#E67514",
-      light: "#FFF1CA",
-      dark: "#4B352A",
-      contrastText: "#242105",
-    },
-    shadow: {
-      main: "#212121",
-      light: "#FFB823",
-      dark: "#CA7842",
-      contrastText: "#242105",
-    },
-    standard: {
-      main: "#06923E",
-      light: "#B2CD9C",
-      dark: "#708A58",
-      contrastText: "#242105",
-    },
-    highlight: {
-      main: "#D3ECCD",
-      light: "#B2CD9C",
-      dark: "#2D4F2B",
-      contrastText: "#242105",
-    },
+    siteBackground: palette.augmentColor({
+      color: { main: "#0d1b2a" },
+      //   light: "#415a77",
+      //   dark: "#1b263b",
+      //   contrastText: "#242105",
+    }),
+    accent: palette.augmentColor({
+      color: { main: "#E67514" },
+      //   light: "#FFF1CA",
+      //   dark: "#4B352A",
+      //   contrastText: "#242105",
+    }),
+    shadow: palette.augmentColor({
+      color: { main: "#212121" },
+      //   light: "#FFB823",
+      //   dark: "#CA7842",
+      //   contrastText: "#242105",
+    }),
+    standard: palette.augmentColor({
+      color: { main: "#555B6E" },
+      //
+      //   main: "#06923E",
+      //   light: "#B2CD9C",
+      //   dark: "#708A58",
+      //   contrastText: "#242105",
+    }),
+    highlight: palette.augmentColor({
+      color: { main: "#D3ECCD" },
+      //   light: "#B2CD9C",
+      //   dark: "#2D4F2B",
+      //   contrastText: "#242105",
+    }),
   },
 });
 

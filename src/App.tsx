@@ -1,8 +1,8 @@
 import React from "react";
 import "./App.css";
-import AppAppBar from "./blog-components/AppAppBar";
+import AppAppBar from "./core-components/AppAppBar";
 import Themeify from "./Themeify";
-import Footer from "./blog-components/Footer";
+import Footer from "./core-components/Footer";
 import Blog from "./Blog";
 
 function App() {
@@ -12,10 +12,10 @@ function App() {
         <header className="App-header">
           <AppAppBar />
         </header>
-        <body>
-          <Blog />
-        </body>
-        <Footer />
+        <Blog />
+        <footer>
+          <Footer />
+        </footer>
       </Themeify>
     </div>
   );

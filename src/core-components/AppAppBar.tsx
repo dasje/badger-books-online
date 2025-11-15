@@ -13,7 +13,6 @@ export default function AppAppBar() {
       sx={{
         boxShadow: 0,
         bgcolor: "white",
-        // backgroundImage: "none",
         mt: "28px",
       }}
     >
@@ -27,11 +26,11 @@ export default function AppAppBar() {
             alignItems: "center",
           }}
         >
-          <Button variant="text" color="accent">
+          <Button variant="text" sx={{ color: "accent" }}>
             <h2>Projects</h2>
           </Button>
           <UpcycleIcon />
-          <Button variant="text" color="accent">
+          <Button variant="text" sx={{ color: "accent" }}>
             <h2>Blog</h2>
           </Button>
         </Stack>
