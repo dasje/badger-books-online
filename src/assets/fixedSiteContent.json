@@ -1,0 +1,10 @@
+{
+  "Blog": {
+    "BlogTitle": "Blog",
+    "BlogByline": "Updates and news from Badger Books"
+  },
+  "Projects": {
+    "ProjectsTitle": "Projects",
+    "ProjectsByline": "A showcase of our latest work"
+  }
+}

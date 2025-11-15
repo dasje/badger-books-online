@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import UpcycleIcon from "./UpcycleIcon";
 import { Divider, Stack } from "@mui/material";
+import { Link } from "react-router-dom";
 
 export default function AppAppBar() {
   return (
@@ -26,11 +27,13 @@ export default function AppAppBar() {
             alignItems: "center",
           }}
         >
-          <Button variant="text" sx={{ color: "accent" }}>
+          <Button variant="text" color="accent" href="/projects">
             <h2>Projects</h2>
           </Button>
-          <UpcycleIcon />
-          <Button variant="text" sx={{ color: "accent" }}>
+          <Link to="/">
+            <UpcycleIcon />
+          </Link>
+          <Button variant="text" color="accent" href="/blog">
             <h2>Blog</h2>
           </Button>
         </Stack>

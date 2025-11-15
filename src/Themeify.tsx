@@ -1,5 +1,5 @@
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import type { ThemeOptions } from "@mui/material/styles";
+import type { PaletteColorOptions, ThemeOptions } from "@mui/material/styles";
 
 // Augment the palette to include an ochre color
 declare module "@mui/material/styles" {
@@ -17,6 +17,29 @@ declare module "@mui/material/styles" {
     standard?: PaletteOptions["primary"];
     highlight?: PaletteOptions["primary"];
     siteBackground?: PaletteOptions["primary"];
+  }
+}
+
+declare module "@mui/material/styles" {
+  interface CustomPalette {
+    siteBackground: PaletteColorOptions;
+    shadow: PaletteColorOptions;
+    accent: PaletteColorOptions;
+    standard: PaletteColorOptions;
+    highlight: PaletteColorOptions;
+  }
+  interface Palette extends CustomPalette {}
+  interface PaletteOptions extends CustomPalette {}
+}
+
+declare module "@mui/material/Button" {
+  interface ButtonPropsColorOverrides {
+    siteBackground: true;
+    shadow: true;
+    accent: true;
+    violet: true;
+    standard: true;
+    highlight: true;
   }
 }
 
