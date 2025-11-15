@@ -19,6 +19,9 @@ declare module "@mui/material/styles" {
 }
 
 const theme = createTheme({
+  typography: {
+    fontFamily: ["Grenze"].join(","),
+  },
   palette: {
     accent: {
       main: "#E67514",

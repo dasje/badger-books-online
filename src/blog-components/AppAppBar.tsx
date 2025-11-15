@@ -28,11 +28,11 @@ export default function AppAppBar() {
           }}
         >
           <Button variant="text" color="accent">
-            Projects
+            <h2>Projects</h2>
           </Button>
           <UpcycleIcon />
           <Button variant="text" color="accent">
-            Blog
+            <h2>Blog</h2>
           </Button>
         </Stack>
       </Container>
