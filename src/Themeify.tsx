@@ -8,6 +8,7 @@ declare module "@mui/material/styles" {
     shadow: Palette["primary"];
     standard: Palette["primary"];
     highlight: Palette["primary"];
+    siteBackground: Palette["primary"];
   }
 
   interface PaletteOptions {
@@ -15,6 +16,7 @@ declare module "@mui/material/styles" {
     shadow?: PaletteOptions["primary"];
     standard?: PaletteOptions["primary"];
     highlight?: PaletteOptions["primary"];
+    siteBackground?: PaletteOptions["primary"];
   }
 }
 
@@ -23,6 +25,12 @@ const theme = createTheme({
     fontFamily: ["Grenze"].join(","),
   },
   palette: {
+    siteBackground: {
+      main: "#0d1b2a",
+      light: "#415a77",
+      dark: "#1b263b",
+      contrastText: "#242105",
+    },
     accent: {
       main: "#E67514",
       light: "#FFF1CA",

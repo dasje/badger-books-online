@@ -3,17 +3,20 @@ import "./App.css";
 import AppAppBar from "./blog-components/AppAppBar";
 import Themeify from "./Themeify";
 import Footer from "./blog-components/Footer";
+import Blog from "./Blog";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        {/* <Blog /> */}
-        <Themeify>
+      <Themeify>
+        <header className="App-header">
           <AppAppBar />
-          <Footer />
-        </Themeify>
-      </header>
+        </header>
+        <body>
+          <Blog />
+        </body>
+        <Footer />
+      </Themeify>
     </div>
   );
 }
