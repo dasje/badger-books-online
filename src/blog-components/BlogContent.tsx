@@ -4,14 +4,14 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 
 // import { CategoriesSelect } from "./CategoriesSelect";
-import { BlogCard } from "./card/BlogCard";
-import fixedSiteContent from "../assets/fixedSiteContent.json";
+import { BlogCard } from "./blogCard/BlogCard";
+import { useParams } from "react-router-dom";
 
 interface BlogContentProps {
   title: string;
   byline?: string;
   cardData: Array<{
-    id: number;
+    id: string;
     img: string;
     tag: string;
     title: string;
@@ -26,6 +26,8 @@ export default function BlogContent(props: BlogContentProps) {
   const [focusedCardIndex, setFocusedCardIndex] = React.useState<number | null>(
     null,
   );
+
+  //   let params = useParams();
 
   const handleFocus = (index: number) => {
     setFocusedCardIndex(index);

@@ -6,7 +6,7 @@ interface BlogCardProps {
   handleFocus: (index: number) => void;
   handleBlur: () => void;
   item: {
-    id: number;
+    id: string;
     img: string;
     tag: string;
     title: string;

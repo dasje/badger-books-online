@@ -5,6 +5,8 @@ import Footer from "./core-components/Footer";
 import Blog from "./Blog";
 import { Route, Routes } from "react-router-dom";
 import Projects from "./Projects";
+import Main from "./Main";
+import BlogEntry from "./blog-components/BlogEntry";
 
 function App() {
   return (
@@ -13,8 +15,9 @@ function App() {
         <AppAppBar />
       </header>
       <Routes>
-        <Route path="/" />
+        <Route path="/" element={<Main />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:blogId" element={<BlogEntry />} />
         <Route path="/projects" element={<Projects />} />
       </Routes>
       <footer>

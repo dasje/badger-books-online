@@ -2,24 +2,27 @@ import * as React from "react";
 import Typography from "@mui/material/Typography";
 import { Container } from "@mui/material";
 
-interface BlogEntryProps {
-  title: string;
-  date: string;
-  content: string;
-}
+import { cardData } from "../assets/blogCardData";
+import { useParams } from "react-router-dom";
 
-export default function BlogEntry(props: BlogEntryProps) {
+export default function BlogEntry() {
+  let { blogId } = useParams<string>();
+
+  const blog = cardData.find((b) => b.id === blogId);
+
+  if (!blog) {
+    return <h2>Blog entry not found</h2>;
+  }
+
   return (
     <Container maxWidth="md" component="main">
       <Typography variant="h1" gutterBottom>
-        {props.title}
+        {blog.title}
       </Typography>
       <Typography variant="subtitle1" gutterBottom>
-        {props.date}
+        {blog.date}
       </Typography>
-      <Typography variant="body1" paragraph>
-        {props.content}
-      </Typography>
+      <Typography variant="body1">{blog.content}</Typography>
     </Container>
   );
 }

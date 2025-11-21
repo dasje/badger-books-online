@@ -1,6 +1,6 @@
 export const cardData = [
   {
-    id: 1,
+    id: "1",
     img: "https://picsum.photos/800/450?random=1",
     tag: "Engineering",
     title: "Revolutionizing software development with cutting-edge tools",
@@ -11,7 +11,7 @@ export const cardData = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   },
   {
-    id: 2,
+    id: "2",
     img: "https://picsum.photos/800/450?random=2",
     tag: "Product",
     title: "Innovative product features that drive success",
@@ -22,7 +22,7 @@ export const cardData = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   },
   {
-    id: 3,
+    id: "3",
     img: "https://picsum.photos/800/450?random=3",
     tag: "Design",
     title: "Designing for the future: trends and insights",
@@ -33,7 +33,7 @@ export const cardData = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   },
   {
-    id: 4,
+    id: "4",
     img: "https://picsum.photos/800/450?random=4",
     tag: "Company",
     title: "Our company's journey: milestones and achievements",
@@ -44,7 +44,7 @@ export const cardData = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   },
   {
-    id: 5,
+    id: "5",
     img: "https://picsum.photos/800/450?random=45",
     tag: "Engineering",
     title: "Pioneering sustainable engineering solutions",
@@ -55,7 +55,7 @@ export const cardData = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   },
   {
-    id: 6,
+    id: "6",
     img: "https://picsum.photos/800/450?random=6",
     tag: "Product",
     title: "Maximizing efficiency with our latest product updates",
