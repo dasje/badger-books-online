@@ -1,6 +1,7 @@
 import * as React from "react";
 import Typography from "@mui/material/Typography";
 import { Container } from "@mui/material";
+import parse from "html-react-parser";
 
 import { cardData } from "../assets/blogCardData";
 import { useParams } from "react-router-dom";
@@ -14,6 +15,8 @@ export default function BlogEntry() {
     return <h2>Blog entry not found</h2>;
   }
 
+  const parsedContent = parse(blog.content);
+
   return (
     <Container maxWidth="md" component="main">
       <Typography variant="h1" gutterBottom>
@@ -22,7 +25,7 @@ export default function BlogEntry() {
       <Typography variant="subtitle1" gutterBottom>
         {blog.date}
       </Typography>
-      <Typography variant="body1">{blog.content}</Typography>
+      <Typography variant="body1">{parsedContent}</Typography>
     </Container>
   );
 }

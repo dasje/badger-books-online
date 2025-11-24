@@ -3,6 +3,7 @@ import Latest from "./blog-components/Latest";
 import { cardData } from "./assets/blogCardData";
 import BlogContent from "./blog-components/BlogContent";
 import fixedSiteContent from "./assets/fixedSiteContent.json";
+import { Button } from "@mui/material";
 
 export default function Blog(props: { disableCustomTheme?: boolean }) {
   return (
@@ -18,6 +19,10 @@ export default function Blog(props: { disableCustomTheme?: boolean }) {
           cardData={cardData}
         />
         <Latest />
+
+        <Button variant="contained" href="/blog/new">
+          Write a New Blog Post
+        </Button>
       </Container>
     </>
   );

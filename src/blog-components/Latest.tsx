@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
 import NavigateNextRoundedIcon from "@mui/icons-material/NavigateNextRounded";
 import { cardData } from "../assets/blogCardData";
+import { Link } from "@mui/material";
 
 const StyledTypography = styled(Typography)({
   display: "-webkit-box",
@@ -73,40 +74,42 @@ export default function Latest() {
       <Grid container spacing={8} columns={12} sx={{ my: 4 }}>
         {cardData.map((article, index) => (
           <Grid key={index} size={{ xs: 12, sm: 6 }}>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                gap: 1,
-                height: "100%",
-              }}
-            >
-              <Typography gutterBottom variant="caption" component="div">
-                {article.tag}
-              </Typography>
-              <TitleTypography
-                gutterBottom
-                variant="h6"
-                onFocus={() => handleFocus(index)}
-                onBlur={handleBlur}
-                tabIndex={0}
-                className={focusedCardIndex === index ? "Mui-focused" : ""}
+            <Link href={`/blog/${article.id}`} key={focusedCardIndex}>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                  gap: 1,
+                  height: "100%",
+                }}
               >
-                {article.title}
-                <NavigateNextRoundedIcon
-                  className="arrow"
-                  sx={{ fontSize: "1rem" }}
-                />
-              </TitleTypography>
-              <StyledTypography
-                variant="body2"
-                color="text.secondary"
-                gutterBottom
-              >
-                {article.description}
-              </StyledTypography>
-            </Box>
+                <Typography gutterBottom variant="caption" component="div">
+                  {article.tag}
+                </Typography>
+                <TitleTypography
+                  gutterBottom
+                  variant="h6"
+                  onFocus={() => handleFocus(index)}
+                  onBlur={handleBlur}
+                  tabIndex={0}
+                  className={focusedCardIndex === index ? "Mui-focused" : ""}
+                >
+                  {article.title}
+                  <NavigateNextRoundedIcon
+                    className="arrow"
+                    sx={{ fontSize: "1rem" }}
+                  />
+                </TitleTypography>
+                <StyledTypography
+                  variant="body2"
+                  color="text.secondary"
+                  gutterBottom
+                >
+                  {article.description}
+                </StyledTypography>
+              </Box>
+            </Link>
           </Grid>
         ))}
       </Grid>
