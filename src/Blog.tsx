@@ -4,8 +4,24 @@ import { cardData } from "./assets/blogCardData";
 import BlogContent from "./blog-components/BlogContent";
 import fixedSiteContent from "./assets/fixedSiteContent.json";
 import { Button } from "@mui/material";
+import { BlogType } from "./assets/types";
+import { useEffect, useState } from "react";
+import { fetchBlogs } from "./db/funcs/fetchBlogs";
 
 export default function Blog(props: { disableCustomTheme?: boolean }) {
+  const [blogs, setBlogs] = useState<BlogType[]>([]);
+
+  const blogFetch = async () => {
+    const data = await fetchBlogs();
+    if (Array.isArray(data)) {
+      setBlogs(data);
+    }
+  };
+
+  useEffect(() => {
+    blogFetch();
+  }, []);
+
   return (
     <>
       <Container
@@ -16,7 +32,7 @@ export default function Blog(props: { disableCustomTheme?: boolean }) {
         <BlogContent
           title={fixedSiteContent.Blog.BlogTitle}
           byline={fixedSiteContent.Blog.BlogByline}
-          cardData={cardData}
+          cardData={blogs}
         />
         <Latest />
 

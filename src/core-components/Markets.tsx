@@ -10,9 +10,9 @@ export default function Markets() {
   return (
     <>
       <Typography>
-        <h2>{fixedSiteContent.News.NewsTitle}</h2>
+        <h2>{fixedSiteContent.Markets.MarketsTitle}</h2>
       </Typography>
-      <Typography>{fixedSiteContent.News.NewsText}</Typography>
+      <Typography>{fixedSiteContent.Markets.MarketsByline}</Typography>
       {marketsData.map((marketItem, index) => (
         <Container maxWidth="lg" key={index} sx={{ mb: 4 }}>
           <Typography>

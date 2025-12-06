@@ -1,4 +1,7 @@
+import { useRef } from "react";
 import { useTheme } from "@mui/material";
+import ImageIcon from "@mui/icons-material/Image";
+
 import {
   MenuButtonAddTable,
   MenuButtonBlockquote,
@@ -9,7 +12,6 @@ import {
   MenuButtonEditLink,
   MenuButtonHighlightColor,
   MenuButtonHorizontalRule,
-  MenuButtonImageUpload,
   MenuButtonIndent,
   MenuButtonItalic,
   MenuButtonOrderedList,
@@ -29,11 +31,23 @@ import {
   MenuSelectFontSize,
   MenuSelectHeading,
   MenuSelectTextAlign,
+  MenuButton,
   isTouchDevice,
 } from "mui-tiptap";
 
-export default function EditorMenuControls() {
+interface EditorMenuControlsProps {
+  handleNewImageFiles: (
+    files: File[],
+    insertPosition?: number,
+  ) => void | Promise<void>;
+}
+
+export default function EditorMenuControls({
+  handleNewImageFiles,
+}: EditorMenuControlsProps) {
   const theme = useTheme();
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
   return (
     <MenuControlsContainer>
       <MenuSelectFontFamily
@@ -46,25 +60,16 @@ export default function EditorMenuControls() {
       />
 
       <MenuDivider />
-
       <MenuSelectHeading />
-
       <MenuDivider />
-
       <MenuSelectFontSize />
-
       <MenuDivider />
 
       <MenuButtonBold />
-
       <MenuButtonItalic />
-
       <MenuButtonUnderline />
-
       <MenuButtonStrikethrough />
-
       <MenuButtonSubscript />
-
       <MenuButtonSuperscript />
 
       <MenuDivider />
@@ -89,7 +94,6 @@ export default function EditorMenuControls() {
           { value: "#dddddd", label: "Light grey" },
           { value: "#ffa6a6", label: "Light red" },
           { value: "#ffd699", label: "Light orange" },
-          // Plain yellow matches the browser default `mark` like when using Cmd+Shift+H
           { value: "#ffff00", label: "Yellow" },
           { value: "#99cc99", label: "Light green" },
           { value: "#90c6ff", label: "Light blue" },
@@ -100,27 +104,16 @@ export default function EditorMenuControls() {
       <MenuDivider />
 
       <MenuButtonEditLink />
-
       <MenuDivider />
-
       <MenuSelectTextAlign />
-
       <MenuDivider />
-
       <MenuButtonOrderedList />
-
       <MenuButtonBulletedList />
-
       <MenuButtonTaskList />
 
-      {/* On touch devices, we'll show indent/unindent buttons, since they're
-      unlikely to have a keyboard that will allow for using Tab/Shift+Tab. These
-      buttons probably aren't necessary for keyboard users and would add extra
-      clutter. */}
       {isTouchDevice() && (
         <>
           <MenuButtonIndent />
-
           <MenuButtonUnindent />
         </>
       )}
@@ -128,35 +121,35 @@ export default function EditorMenuControls() {
       <MenuDivider />
 
       <MenuButtonBlockquote />
-
       <MenuDivider />
-
       <MenuButtonCode />
-
       <MenuButtonCodeBlock />
 
       <MenuDivider />
 
-      <MenuButtonImageUpload
-        onUploadFiles={(files) =>
-          // For the sake of a demo, we don't have a server to upload the files
-          // to, so we'll instead convert each one to a local "temporary" object
-          // URL. This will not persist properly in a production setting. You
-          // should instead upload the image files to your server, or perhaps
-          // convert the images to bas64 if you would like to encode the image
-          // data directly into the editor content, though that can make the
-          // editor content very large.
-          files.map((file) => ({
-            src: URL.createObjectURL(file),
-            alt: file.name,
-          }))
-        }
+      {/* 🟩 CUSTOM IMAGE UPLOAD */}
+      <MenuButton
+        tooltipLabel="Upload image"
+        IconComponent={ImageIcon}
+        onClick={() => fileInputRef.current?.click()}
+      />
+
+      <input
+        type="file"
+        accept="image/*"
+        ref={fileInputRef}
+        style={{ display: "none" }}
+        onChange={(e) => {
+          const files = Array.from(e.target.files || []);
+          if (files.length > 0) {
+            handleNewImageFiles(files); // ← YOUR upload logic
+          }
+        }}
       />
 
       <MenuDivider />
 
       <MenuButtonHorizontalRule />
-
       <MenuButtonAddTable />
 
       <MenuDivider />

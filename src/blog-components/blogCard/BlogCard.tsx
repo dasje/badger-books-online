@@ -1,27 +1,27 @@
 import { CardMedia, Grid, Link, Typography } from "@mui/material";
 import { StyledCard, StyledCardContent, StyledTypography } from "./cardStyle";
+import { useEffect, useState } from "react";
+import { BlogType } from "../../assets/types";
 
 interface BlogCardProps {
   focusedCardIndex: number | null;
   handleFocus: (index: number) => void;
   handleBlur: () => void;
-  item: {
-    id: string;
-    img: string;
-    tag: string;
-    title: string;
-    description: string;
-    date: string;
-    content: string;
-  };
+  item: BlogType;
 }
 
 export const BlogCard = (props: BlogCardProps) => {
   const { focusedCardIndex, handleFocus, handleBlur, item } = props;
+  //   const [currentItem, setCurrentItem] = useState<BlogType>(item);
+
+  useEffect(() => {
+    console.log("b;ah", item);
+    //   setCurrentItem(item);
+  }, [item]);
 
   return (
-    <Grid size={{ xs: 12, md: 6 }}>
-      <Link href={`/blog/${item.id}`} key={props.focusedCardIndex}>
+    <Grid size={{ xs: 12, md: 6 }} key={props.focusedCardIndex}>
+      <Link href={`/blog/${item.id}`}>
         <StyledCard
           variant="outlined"
           onFocus={() => handleFocus(0)}

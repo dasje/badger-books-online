@@ -1,8 +1,12 @@
 import { createClient } from "@supabase/supabase-js";
 // Create a single supabase client for interacting with your databaseconst
 
-require("dotenv").config();
+// const supabaseUrl = "http://127.0.0.1:54321"; //process.env.SUPABASE_URL;
+// const supabaseKey = "sb_secret_N7UND0UgjKTVK-Uodkm0Hg_xSvEMPvz"; // process.env.SUPABASE_KEY;
+const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
+const supabaseKey = process.env.REACT_APP_SUPABASE_KEY;
 
-const supabaseUrl = "https://abjjzmjuscnpjsybtmfz.supabase.co";
-const supabaseKey = process.env.SUPABASE_KEY;
-// const supabase = createClient(supabaseUrl, supabaseKey);
+export const supabase = createClient(
+  supabaseUrl ? supabaseUrl : "",
+  supabaseKey ? supabaseKey : "",
+);

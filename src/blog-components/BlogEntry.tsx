@@ -3,13 +3,26 @@ import Typography from "@mui/material/Typography";
 import { Container } from "@mui/material";
 import parse from "html-react-parser";
 
-import { cardData } from "../assets/blogCardData";
+// import { cardData } from "../assets/blogCardData";
 import { useParams } from "react-router-dom";
+import { fetchBlogById } from "../db/funcs/fetchBlogById";
 
 export default function BlogEntry() {
   let { blogId } = useParams<string>();
+  console.log("blogId", blogId);
 
-  const blog = cardData.find((b) => b.id === blogId);
+  const [blog, setBlog] = React.useState<any>(null);
+
+  const blogFetch = async () => {
+    const data = await fetchBlogById(blogId!);
+    if (Array.isArray(data)) {
+      setBlog(data[0]);
+    }
+  };
+
+  React.useEffect(() => {
+    blogFetch();
+  }, []);
 
   if (!blog) {
     return <h2>Blog entry not found</h2>;

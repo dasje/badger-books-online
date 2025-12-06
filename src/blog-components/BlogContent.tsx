@@ -3,22 +3,13 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 
-// import { CategoriesSelect } from "./CategoriesSelect";
+import { BlogType } from "../assets/types";
 import { BlogCard } from "./blogCard/BlogCard";
-import { useParams } from "react-router-dom";
 
 interface BlogContentProps {
   title: string;
   byline?: string;
-  cardData: Array<{
-    id: string;
-    img: string;
-    tag: string;
-    title: string;
-    description: string;
-    date: string;
-    content: string;
-  }>;
+  cardData: Array<BlogType>;
 }
 
 export default function BlogContent(props: BlogContentProps) {
@@ -26,8 +17,13 @@ export default function BlogContent(props: BlogContentProps) {
   const [focusedCardIndex, setFocusedCardIndex] = React.useState<number | null>(
     null,
   );
+  const [blogContent, setBlogContent] =
+    React.useState<Array<BlogType>>(cardData);
 
-  //   let params = useParams();
+  React.useEffect(() => {
+    console.log("props", cardData);
+    setBlogContent(cardData);
+  }, [cardData]);
 
   const handleFocus = (index: number) => {
     setFocusedCardIndex(index);
@@ -51,21 +47,22 @@ export default function BlogContent(props: BlogContentProps) {
       <CategoriesSelect /> */}
 
       <Grid container spacing={2} columns={12}>
-        {cardData.map((item, index) => {
-          if (index < 5) {
-            return index === 0 ? null : (
-              <BlogCard
-                key={index}
-                item={item}
-                focusedCardIndex={focusedCardIndex}
-                handleFocus={handleFocus}
-                handleBlur={handleBlur}
-              />
-            );
-          } else {
-            return null;
-          }
-        })}
+        {blogContent.length > 0 &&
+          blogContent.map((item, index) => {
+            if (index < 5) {
+              return (
+                <BlogCard
+                  key={index}
+                  item={item}
+                  focusedCardIndex={focusedCardIndex}
+                  handleFocus={handleFocus}
+                  handleBlur={handleBlur}
+                />
+              );
+            } else {
+              return null;
+            }
+          })}
       </Grid>
     </Box>
   );
