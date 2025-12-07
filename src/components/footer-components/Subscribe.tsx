@@ -45,7 +45,7 @@ export default function Subscribe() {
 
   return (
     <Box sx={{ width: { xs: "100%", sm: "60%" } }}>
-      <UpcycleIcon />
+      {/* <UpcycleIcon /> */}
       <Typography variant="body2" gutterBottom sx={{ fontWeight: 600, mt: 2 }}>
         Join the newsletter
       </Typography>

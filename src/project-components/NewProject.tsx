@@ -1,7 +1,7 @@
 import Container from "@mui/material/Container";
 import Editor from "./Editor";
 
-export default function NewBlog(props: { disableCustomTheme?: boolean }) {
+export default function NewProject(props: { disableCustomTheme?: boolean }) {
   return (
     <>
       <Container

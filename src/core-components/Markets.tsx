@@ -14,7 +14,7 @@ export default function Markets() {
       </Typography>
       <Typography>{fixedSiteContent.Markets.MarketsByline}</Typography>
       {marketsData.map((marketItem, index) => (
-        <Container maxWidth="lg" key={index} sx={{ mb: 4 }}>
+        <Container maxWidth="lg" key={index} sx={{}}>
           <Typography>
             <h3>{marketItem.Market}</h3>
             {marketItem.Date}

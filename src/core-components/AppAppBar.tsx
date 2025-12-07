@@ -27,9 +27,9 @@ export default function AppAppBar() {
             alignItems: "center",
           }}
         >
-          <Button variant="text" color="accent" href="/projects">
+          {/* <Button variant="text" color="accent" href="/projects">
             <h2>Projects</h2>
-          </Button>
+          </Button> */}
           <Link to="/">
             <UpcycleIcon />
           </Link>

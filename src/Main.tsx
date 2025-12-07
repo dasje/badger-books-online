@@ -12,7 +12,7 @@ export default function Main() {
         component="main"
         sx={{ display: "flex", flexDirection: "column", gap: 4 }}
       >
-        <News />
+        {/* <News /> */}
         <Markets />
         <OverBB />
       </Container>

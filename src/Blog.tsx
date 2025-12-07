@@ -1,9 +1,6 @@
 import Container from "@mui/material/Container";
-import Latest from "./blog-components/Latest";
-import { cardData } from "./assets/blogCardData";
 import BlogContent from "./blog-components/BlogContent";
 import fixedSiteContent from "./assets/fixedSiteContent.json";
-import { Button } from "@mui/material";
 import { BlogType } from "./assets/types";
 import { useEffect, useState } from "react";
 import { fetchBlogs } from "./db/funcs/fetchBlogs";

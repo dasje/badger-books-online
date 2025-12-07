@@ -1,10 +1,24 @@
 import Container from "@mui/material/Container";
-import Latest from "./blog-components/Latest";
 import BlogContent from "./blog-components/BlogContent";
-import { cardData } from "./assets/blogCardData";
 import fixedSiteContent from "./assets/fixedSiteContent.json";
+import { BlogType } from "./assets/types";
+import { useEffect, useState } from "react";
+import { fetchBlogs } from "./db/funcs/fetchBlogs";
 
 export default function Projects(props: { disableCustomTheme?: boolean }) {
+  const [blogs, setBlogs] = useState<BlogType[]>([]);
+
+  const blogFetch = async () => {
+    const data = await fetchBlogs();
+    if (Array.isArray(data)) {
+      setBlogs(data);
+    }
+  };
+
+  useEffect(() => {
+    blogFetch();
+  }, []);
+
   return (
     <>
       <Container
@@ -13,11 +27,15 @@ export default function Projects(props: { disableCustomTheme?: boolean }) {
         sx={{ display: "flex", flexDirection: "column", gap: 4 }}
       >
         <BlogContent
-          title={fixedSiteContent.Projects.ProjectsTitle}
-          byline={fixedSiteContent.Projects.ProjectsByline}
-          cardData={cardData}
+          title={fixedSiteContent.Blog.BlogTitle}
+          byline={fixedSiteContent.Blog.BlogByline}
+          cardData={blogs}
         />
-        <Latest />
+        {/* <Latest /> */}
+
+        {/* <Button variant="contained" href="/blog/new">
+          Write a New Blog Post
+        </Button> */}
       </Container>
     </>
   );

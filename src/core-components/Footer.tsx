@@ -79,18 +79,6 @@ export default function Footer() {
             <Link variant="body2" href="#" color="accent">
               Features
             </Link>
-            <Link variant="body2" href="#" color="accent">
-              Testimonials
-            </Link>
-            <Link variant="body2" href="#" color="accent">
-              Highlights
-            </Link>
-            <Link variant="body2" href="#" color="accent">
-              Pricing
-            </Link>
-            <Link variant="body2" href="#" color="accent">
-              FAQs
-            </Link>
           </Box>
           <Box
             sx={{
@@ -105,12 +93,6 @@ export default function Footer() {
             <Link color="accent" variant="body2" href="#">
               About us
             </Link>
-            <Link color="accent" variant="body2" href="#">
-              Careers
-            </Link>
-            <Link color="accent" variant="body2" href="#">
-              Press
-            </Link>
           </Box>
           <Box
             sx={{
@@ -123,12 +105,6 @@ export default function Footer() {
               Legal
             </Typography>
             <Link color="accent" variant="body2" href="#">
-              Terms
-            </Link>
-            <Link color="accent" variant="body2" href="#">
-              Privacy
-            </Link>
-            <Link color="accent" variant="body2" href="#">
               Contact
             </Link>
           </Box>
@@ -137,14 +113,14 @@ export default function Footer() {
           sx={{
             display: "flex",
             justifyContent: "space-between",
-            pt: { xs: 4, sm: 8 },
+            pt: { xs: 4 },
             width: "100%",
             borderTop: "1px solid",
             borderColor: "divider",
           }}
         >
           <div>
-            <Link color="accent" variant="body2" href="#">
+            {/* <Link color="accent" variant="body2" href="#">
               Privacy Policy
             </Link>
             <Typography sx={{ display: "inline", mx: 0.5, opacity: 0.5 }}>
@@ -152,24 +128,24 @@ export default function Footer() {
             </Typography>
             <Link color="accent" variant="body2" href="#">
               Terms of Service
-            </Link>
+            </Link> */}
             <Copyright />
           </div>
-          <Stack
+          {/* <Stack
             direction="row"
             spacing={1}
             useFlexGap
             sx={{ justifyContent: "left", color: "text.secondary" }}
+          > */}
+          <IconButton
+            size="small"
+            href="https://github.com/mui"
+            aria-label="GitHub"
+            sx={{ alignSelf: "center", color: "accent" }}
           >
-            <IconButton
-              size="small"
-              href="https://github.com/mui"
-              aria-label="GitHub"
-              sx={{ alignSelf: "center", color: "accent" }}
-            >
-              <GitHubIcon />
-            </IconButton>
-          </Stack>
+            <GitHubIcon />
+          </IconButton>
+          {/* </Stack> */}
         </Box>
       </Container>
     </React.Fragment>
