@@ -75,8 +75,9 @@ export default function Subscribe() {
         <Button
           variant="text"
           size="small"
-          sx={{ flexShrink: 0, color: "accent" }}
+          sx={{ flexShrink: 0 }}
           onClick={handleOpen}
+          color="accent"
         >
           Subscribe
         </Button>

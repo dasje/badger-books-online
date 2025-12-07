@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import EditMarkets from "./EditMarkets";
+import Editor from "./Editor";
 
 export default function AdminSelect() {
   const [currentSiteSection, setCurrentSiteSection] = useState<string>("");
@@ -21,7 +22,7 @@ export default function AdminSelect() {
     if (currentSiteSection === "markets") {
       return <EditMarkets />;
     } else if (currentSiteSection === "blog") {
-      return <div>New Blog Section Selected</div>;
+      return <Editor />;
     }
   };
 

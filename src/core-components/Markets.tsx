@@ -24,13 +24,13 @@ export default function Markets() {
       <Typography variant="h2" component="h2" gutterBottom>
         {fixedSiteContent.Markets.MarketsTitle}
       </Typography>
-      <Typography>{fixedSiteContent.Markets.MarketsByline}</Typography>
+      <Typography variant="h5" gutterBottom>
+        {fixedSiteContent.Markets.MarketsByline}
+      </Typography>
       {markets.map((marketItem, index) => (
         <Container maxWidth="lg" key={index} sx={{}}>
-          <Typography color="accent">
-            <h3>
-              {marketItem.market},{marketItem.dates}
-            </h3>
+          <Typography color="accent" variant="h6" component="h6" gutterBottom>
+            {marketItem.market}, {marketItem.dates}
           </Typography>
         </Container>
       ))}
