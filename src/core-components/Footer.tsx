@@ -11,21 +11,30 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import UpcycleIcon from "./UpcycleIcon";
-
-function Copyright() {
-  return (
-    <Typography variant="body2" sx={{ color: "standard", mt: 1 }}>
-      {"Copyright © "}
-      <Link color="accent" href="">
-        Ben Badger
-      </Link>
-      &nbsp;
-      {new Date().getFullYear()}
-    </Typography>
-  );
-}
+import { Input, Modal } from "@mui/material";
+import { Copyright } from "../components/footer-components/Copyright";
+import Subscribe from "../components/footer-components/Subscribe";
 
 export default function Footer() {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  const [subscribeEmail, setSubscribeEmail] = React.useState("");
+  const [contactName, setContactName] = React.useState("");
+
+  const modalStyle = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 400,
+    bgcolor: "background.paper",
+    border: "2px solid #000",
+    boxShadow: 24,
+    p: 4,
+  };
+
   return (
     <React.Fragment>
       <Divider />
@@ -55,46 +64,7 @@ export default function Footer() {
               minWidth: { xs: "100%", sm: "60%" },
             }}
           >
-            <Box sx={{ width: { xs: "100%", sm: "60%" } }}>
-              <UpcycleIcon />
-              <Typography
-                variant="body2"
-                gutterBottom
-                sx={{ fontWeight: 600, mt: 2 }}
-              >
-                Join the newsletter
-              </Typography>
-              <Typography variant="body2" sx={{ mb: 2 }}>
-                Subscribe for weekly updates. No spams ever!
-              </Typography>
-              <InputLabel htmlFor="email-newsletter" sx={{ color: "white" }}>
-                Email
-              </InputLabel>
-              <Stack direction="row" spacing={1} useFlexGap>
-                <TextField
-                  id="email-newsletter"
-                  hiddenLabel
-                  size="small"
-                  //   variant="outlined"
-                  fullWidth
-                  aria-label="Enter your email address"
-                  slotProps={{
-                    htmlInput: {
-                      autoComplete: "off",
-                      "aria-label": "Enter your email address",
-                    },
-                  }}
-                  sx={{ width: "250px", color: "accent" }}
-                />
-                <Button
-                  variant="text"
-                  size="small"
-                  sx={{ flexShrink: 0, color: "accent" }}
-                >
-                  Subscribe
-                </Button>
-              </Stack>
-            </Box>
+            <Subscribe />
           </Box>
           <Box
             sx={{

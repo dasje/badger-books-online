@@ -188,14 +188,33 @@ export default function Editor() {
                 variant="standard"
                 onChange={(e) => setBlogDescription(e.target.value)}
               />
-              <TextField
+              <Button variant="contained" component="label">
+                {mainImageUrl.length === 0
+                  ? "Upload Blog Cover Image File"
+                  : mainImageUrl}
+                <input
+                  type="file"
+                  hidden
+                  accept="image/*"
+                  onChange={async (e) => {
+                    e.preventDefault();
+                    if (e.target.files && e.target.files[0]) {
+                      const publicUrl = await uploadFileToBucket(
+                        e.target.files[0],
+                      );
+                      setMainImageUrl(publicUrl);
+                    }
+                  }}
+                />
+              </Button>
+              {/* <TextField
                 required
                 id="main-image-url"
                 label="Image URL"
                 defaultValue="..."
                 variant="standard"
                 onChange={(e) => setMainImageUrl(e.target.value)}
-              />
+              /> */}
             </Container>
             <RichTextEditor
               ref={rteRef}
