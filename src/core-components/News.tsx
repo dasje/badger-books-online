@@ -56,7 +56,10 @@ export default function News() {
                 <Typography
                   variant="h3"
                   color="accent"
-                  sx={{ fontWeight: "bold", textShadow: "2px 2px 2px black" }}
+                  sx={{
+                    fontWeight: "bold",
+                    textShadow: "4px 1px black",
+                  }}
                 >
                   {nextWorkshop.title}
                 </Typography>
@@ -85,7 +88,7 @@ export default function News() {
                 <Typography
                   variant="h3"
                   color="accent"
-                  sx={{ fontWeight: "bold", textShadow: "2px 2px 2px black" }}
+                  sx={{ fontWeight: "bold", textShadow: "4px 1px black" }}
                 >
                   {lastBlog.title}
                 </Typography>
