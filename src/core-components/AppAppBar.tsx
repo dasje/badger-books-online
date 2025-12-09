@@ -36,6 +36,9 @@ export default function AppAppBar() {
           <Button variant="text" color="accent" href="/blog">
             <h2>Blog</h2>
           </Button>
+          <Button variant="text" color="accent" href="/workshops">
+            <h2>Workshops</h2>
+          </Button>
         </Stack>
       </Container>
     </AppBar>

@@ -9,6 +9,7 @@ import Main from "./Main";
 import BlogEntry from "./blog-components/BlogEntry";
 import NewBlog from "./blog-components/NewBlog";
 import Admin from "./Admin";
+import Workshops from "./Workshops";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/blog/:blogId" element={<BlogEntry />} />
         <Route path="/blog/new" element={<NewBlog />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/workshops" element={<Workshops />} />
         <Route path="/admin" element={<Admin />} />
       </Routes>
       <footer>

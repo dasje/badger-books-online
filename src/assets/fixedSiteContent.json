@@ -18,5 +18,14 @@
   "Markets": {
     "MarketsTitle": "Upcoming Markets",
     "MarketsByline": "Places to find me"
+  },
+  "Workshops": {
+    "WorkshopsTitle": "Find out how to make your own books",
+    "WorkshopsByline": "Come and make your own book",
+    "UpcomingWorkshops": "Upcoming Workshops",
+    "UpcomingWorkshopsByline": "Workshops coming up in the future",
+    "PreviousWorkshops": "Previous Workshops",
+    "PreviousWorkshopsByline": "Find out about previous workshops I've run",
+    "Description": "How the workshops work..."
   }
 }

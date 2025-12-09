@@ -1,25 +1,19 @@
 import { useEffect, useState } from "react";
-import { fetchMarkets } from "../db/funcs/fetchMarkets";
 import {
   Box,
   Button,
   Container,
   InputLabel,
   Paper,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
   TextField,
   Typography,
 } from "@mui/material";
 import { DataGrid, GridColDef, GridRowSelectionModel } from "@mui/x-data-grid";
-import { updateMarket } from "../db/funcs/updateMarket";
-import { createMarkets } from "../db/funcs/createMarkets";
-import { deleteMarket } from "../db/funcs/deleteMarket";
 import { MarketType } from "../db/types/MarketTypes";
+import { deleteEntry } from "../db/funcs/deleteEntry";
+import { createEntry } from "../db/funcs/createEntry";
+import { fetchAll } from "../db/funcs/fetchAll";
+import { updateRow } from "../db/funcs/updateRow";
 
 export default function EditMarkets() {
   const [markets, setMarkets] = useState<MarketType[]>([]);
@@ -29,26 +23,31 @@ export default function EditMarkets() {
   const [selectionModel, setSelectionModel] = useState<GridRowSelectionModel>();
 
   const marketFetch = async () => {
-    await fetchMarkets().then((data) => {
+    await fetchAll("markets").then((data) => {
       setMarkets(data as MarketType[]);
     });
   };
 
   const updateInputMarket = async () => {
     if (marketId && marketId !== "") {
-      await updateMarket(marketId, marketName, marketDates, "", "").then(() => {
+      await updateRow("markets", marketId, {
+        market: marketName,
+        dates: marketDates,
+      }).then(() => {
         marketFetch();
       });
     } else if (!marketId || marketId === "") {
-      createMarkets(marketName, marketDates, "", "").then(() => {
-        marketFetch();
-      });
+      createEntry("markets", { market: marketName, dates: marketDates }).then(
+        () => {
+          marketFetch();
+        },
+      );
     }
   };
 
   const deleteSelectedMarket = async () => {
     if (marketId !== "") {
-      await deleteMarket(marketId).then(async () => {
+      await deleteEntry(marketId, "markets").then(async () => {
         await marketFetch().then(() => {
           setMarketId("");
           setMarketName("");

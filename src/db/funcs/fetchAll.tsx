@@ -1,10 +1,10 @@
 import { supabase } from "../client";
 
-export const fetchMarkets = async () => {
+export const fetchAll = async (table: string) => {
   try {
     //   setError(null)
     const { data, error } = await supabase
-      .from("markets")
+      .from(table)
       .select("*")
       .order("created_at", { ascending: false });
     console.log(data);

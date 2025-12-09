@@ -4,13 +4,13 @@ import Container from "@mui/material/Container";
 
 import fixedSiteContent from "../assets/fixedSiteContent.json";
 import { Typography } from "@mui/material";
-import { fetchMarkets } from "../db/funcs/fetchMarkets";
 import { MarketType } from "../db/types/MarketTypes";
+import { fetchAll } from "../db/funcs/fetchAll";
 
 export default function Markets() {
   const [markets, setMarkets] = React.useState<MarketType[]>([]);
   const marketFetch = async () => {
-    await fetchMarkets().then((data) => {
+    await fetchAll("markets").then((data) => {
       setMarkets(data as MarketType[]);
     });
   };

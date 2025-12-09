@@ -3,13 +3,13 @@ import BlogContent from "./blog-components/BlogContent";
 import fixedSiteContent from "./assets/fixedSiteContent.json";
 import { BlogType } from "./assets/types";
 import { useEffect, useState } from "react";
-import { fetchBlogs } from "./db/funcs/fetchBlogs";
+import { fetchAll } from "./db/funcs/fetchAll";
 
 export default function Projects(props: { disableCustomTheme?: boolean }) {
   const [blogs, setBlogs] = useState<BlogType[]>([]);
 
   const blogFetch = async () => {
-    const data = await fetchBlogs();
+    const data = await fetchAll("blogs");
     if (Array.isArray(data)) {
       setBlogs(data);
     }

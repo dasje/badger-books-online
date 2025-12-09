@@ -5,7 +5,7 @@ import parse from "html-react-parser";
 
 // import { cardData } from "../assets/blogCardData";
 import { useParams } from "react-router-dom";
-import { fetchBlogById } from "../db/funcs/fetchBlogById";
+import { fetchById } from "../db/funcs/fetchById";
 
 export default function BlogEntry() {
   let { blogId } = useParams<string>();
@@ -14,7 +14,7 @@ export default function BlogEntry() {
   const [blog, setBlog] = React.useState<any>(null);
 
   const blogFetch = async () => {
-    const data = await fetchBlogById(blogId!);
+    const data = await fetchById("blogs", blogId!);
     if (Array.isArray(data)) {
       setBlog(data[0]);
     }

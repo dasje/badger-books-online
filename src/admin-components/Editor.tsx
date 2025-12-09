@@ -26,8 +26,8 @@ import {
 } from "mui-tiptap";
 import useExtensions from "./useExtensions";
 import EditorMenuControls from "./EditorMenuControls";
-import { createBlogPost } from "../db/funcs/createBlogPost";
 import { uploadFileToBucket } from "../db/funcs/uploadFileToBucket";
+import { createEntry } from "../db/funcs/createEntry";
 
 const exampleContent = "";
 
@@ -145,18 +145,13 @@ export default function Editor() {
     setLoading(true);
     const htmlContent = rteRef.current?.editor?.getHTML() ?? "";
     setSubmittedContent(htmlContent);
-    createBlogPost(
-      blogTitle,
-      htmlContent,
-      mainImageUrl,
-      blogDescription,
-    ).finally(() => setLoading(false));
+    createEntry("blogs", {
+      title: blogTitle,
+      content: htmlContent,
+      img: mainImageUrl,
+      description: blogDescription,
+    }).finally(() => setLoading(false));
   };
-
-  useEffect(() => {
-    window.addEventListener("drop", (e) => console.log("WINDOW DROP", e));
-    window.addEventListener("paste", (e) => console.log("WINDOW PASTE", e));
-  }, []);
 
   return (
     <>

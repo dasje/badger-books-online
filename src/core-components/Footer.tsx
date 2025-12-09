@@ -1,40 +1,16 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
+
 import Container from "@mui/material/Container";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import InputLabel from "@mui/material/InputLabel";
-import Link from "@mui/material/Link";
-import Stack from "@mui/material/Stack";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
+
 import GitHubIcon from "@mui/icons-material/GitHub";
-import UpcycleIcon from "./UpcycleIcon";
-import { Input, Modal } from "@mui/material";
+
 import { Copyright } from "../components/footer-components/Copyright";
 import Subscribe from "../components/footer-components/Subscribe";
 
 export default function Footer() {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
-  const [subscribeEmail, setSubscribeEmail] = React.useState("");
-  const [contactName, setContactName] = React.useState("");
-
-  const modalStyle = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    width: 400,
-    bgcolor: "background.paper",
-    border: "2px solid #000",
-    boxShadow: 24,
-    p: 4,
-  };
-
   return (
     <React.Fragment>
       <Divider />
@@ -46,6 +22,10 @@ export default function Footer() {
           gap: { xs: 4, sm: 8 },
           py: { xs: 8, sm: 10 },
           textAlign: { sm: "center", md: "left" },
+          position: "sticky",
+          bottom: 0,
+          left: 0,
+          right: 0,
         }}
       >
         <Box
@@ -66,7 +46,7 @@ export default function Footer() {
           >
             <Subscribe />
           </Box>
-          <Box
+          {/* <Box
             sx={{
               display: { xs: "none", sm: "flex" },
               flexDirection: "column",
@@ -107,7 +87,7 @@ export default function Footer() {
             <Link color="accent" variant="body2" href="#">
               Contact
             </Link>
-          </Box>
+          </Box> */}
         </Box>
         <Box
           sx={{

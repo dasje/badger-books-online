@@ -1,4 +1,3 @@
-import { Lock, LockOpen, TextFields } from "@mui/icons-material";
 import {
   Box,
   FormControl,
@@ -10,6 +9,7 @@ import {
 import { useState } from "react";
 import EditMarkets from "./EditMarkets";
 import Editor from "./Editor";
+import EditWorkshops from "./EditWorkshops";
 
 export default function AdminSelect() {
   const [currentSiteSection, setCurrentSiteSection] = useState<string>("");
@@ -23,6 +23,8 @@ export default function AdminSelect() {
       return <EditMarkets />;
     } else if (currentSiteSection === "blog") {
       return <Editor />;
+    } else if (currentSiteSection === "workshops") {
+      return <EditWorkshops />;
     }
   };
 
@@ -40,6 +42,7 @@ export default function AdminSelect() {
           >
             <MenuItem value={"markets"}>Markets</MenuItem>
             <MenuItem value={"blog"}>New Blog</MenuItem>
+            <MenuItem value={"workshops"}>Workshops</MenuItem>
           </Select>
         </FormControl>
       </Box>
