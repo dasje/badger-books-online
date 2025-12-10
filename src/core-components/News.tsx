@@ -1,10 +1,6 @@
 import * as React from "react";
-
-import Container from "@mui/material/Container";
-
-import { newsData } from "../assets/newsData";
 import fixedSiteContent from "../assets/fixedSiteContent.json";
-import { Box, CardMedia, Grid, Link, Typography } from "@mui/material";
+import { CardMedia, Divider, Grid, Link, Typography } from "@mui/material";
 import { fetchFirst } from "../db/funcs/fetchFirst";
 import { WorkshopType } from "../db/types/WorkshopTypes";
 import { BlogType } from "../assets/types";
@@ -34,8 +30,9 @@ export default function News() {
 
   return (
     <>
-      <Typography>
-        <h2>{fixedSiteContent.News.NewsTitle}</h2>
+      <Divider sx={{ my: 4 }} />
+      <Typography variant="h2" component="h2" gutterBottom>
+        {fixedSiteContent.News.NewsTitle}
       </Typography>
       <Typography>{fixedSiteContent.News.NewsText}</Typography>
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>

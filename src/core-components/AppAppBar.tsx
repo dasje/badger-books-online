@@ -3,76 +3,167 @@ import AppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import UpcycleIcon from "./UpcycleIcon";
-import { Divider, Stack, Typography } from "@mui/material";
+import {
+  Divider,
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { Link } from "react-router-dom";
 
 export default function AppAppBar() {
+  const [open, setOpen] = React.useState(false);
+
+  const toggleDrawer = (newOpen: boolean) => () => {
+    setOpen(newOpen);
+  };
+
   return (
-    <AppBar
-      position="fixed"
-      enableColorOnDark
-      sx={{
-        boxShadow: 0,
-        bgcolor: "white",
-        mt: "28px",
-      }}
-    >
-      <Container maxWidth="lg">
-        <Stack
-          direction="row"
-          spacing={2}
-          divider={<Divider orientation="vertical" flexItem />}
+    <>
+      <AppBar
+        position="fixed"
+        enableColorOnDark
+        sx={{
+          boxShadow: 0,
+          bgcolor: "white",
+          mt: "28px",
+          display: { xs: "block", sm: "none" },
+        }}
+      >
+        {/* <Stack
           sx={{
             justifyContent: "center",
             alignItems: "center",
+            display: { xs: "block", sm: "none" },
           }}
-        >
-          {/* <Button variant="text" color="accent" href="/projects">
-            <h2>Projects</h2>
-          </Button> */}
-          <Link to="/">
-            <UpcycleIcon />
-          </Link>
-          <Container
+        > */}
+        <Button onClick={toggleDrawer(true)}>
+          <Typography variant="h4" color="black">
+            Badger
+          </Typography>
+          <UpcycleIcon />
+          <Typography variant="h4" color="black">
+            Books
+          </Typography>
+        </Button>
+        <Drawer anchor="top" open={open} onClose={toggleDrawer(false)}>
+          <List>
+            <ListItem disablePadding>
+              <Button
+                sx={{ minWidth: "66px" }}
+                variant="text"
+                color="accent"
+                href="/"
+              >
+                <h2>Home</h2>
+              </Button>
+            </ListItem>
+            <ListItem disablePadding>
+              <Button
+                sx={{ minWidth: "66px" }}
+                variant="text"
+                color="accent"
+                href="/blog"
+              >
+                <h2>Blog</h2>
+              </Button>
+            </ListItem>
+            <ListItem disablePadding>
+              <Button
+                sx={{ minWidth: "55px" }}
+                variant="text"
+                color="accent"
+                href="https://badgerbooks.nl/"
+              >
+                <h2>Shop</h2>
+              </Button>
+            </ListItem>
+            <ListItem disablePadding>
+              <Button
+                sx={{ minWidth: "140px" }}
+                variant="text"
+                color="accent"
+                href="/workshops"
+              >
+                <h2>Workshops</h2>
+              </Button>
+            </ListItem>
+          </List>
+        </Drawer>
+        {/* </Stack> */}
+      </AppBar>
+      <AppBar
+        position="fixed"
+        enableColorOnDark
+        sx={{
+          boxShadow: 0,
+          bgcolor: "white",
+          mt: "28px",
+          display: { xs: "none", sm: "block" },
+        }}
+      >
+        <Container maxWidth="lg">
+          <Stack
+            direction="row"
+            spacing={2}
+            divider={<Divider orientation="vertical" flexItem />}
             sx={{
-              display: {
-                xs: "none", // 0px → hides on small screens
-                md: "block", // 900px+ → shows on medium and larger screens
-              },
+              justifyContent: "center",
+              alignItems: "center",
             }}
           >
+            {/* <Button variant="text" color="accent" href="/projects">
+            <h2>Projects</h2>
+          </Button> */}
             <Link to="/">
-              <Typography variant="h1" color="black">
-                Badger Books
-              </Typography>
+              <UpcycleIcon />
             </Link>
-          </Container>
-          <Button
-            sx={{ minWidth: "66px" }}
-            variant="text"
-            color="accent"
-            href="/blog"
-          >
-            <h2>Blog</h2>
-          </Button>
-          <Button
-            sx={{ minWidth: "55px" }}
-            variant="text"
-            color="accent"
-            href="/webshop"
-          >
-            <h2>Shop</h2>
-          </Button>
-          <Button
-            sx={{ minWidth: "140px" }}
-            variant="text"
-            color="accent"
-            href="/workshops"
-          >
-            <h2>Workshops</h2>
-          </Button>
-        </Stack>
-      </Container>
-    </AppBar>
+            <Container
+              sx={{
+                display: {
+                  xs: "none", // 0px → hides on small screens
+                  md: "block", // 900px+ → shows on medium and larger screens
+                },
+              }}
+            >
+              <Link to="/">
+                <Typography variant="h1" color="black">
+                  Badger Books
+                </Typography>
+              </Link>
+            </Container>
+            <Button
+              sx={{ minWidth: "66px" }}
+              variant="text"
+              color="accent"
+              href="/blog"
+            >
+              <h2>Blog</h2>
+            </Button>
+            <Button
+              sx={{ minWidth: "55px" }}
+              variant="text"
+              color="accent"
+              href="https://badgerbooks.nl/"
+            >
+              <h2>Shop</h2>
+            </Button>
+            <Button
+              sx={{ minWidth: "140px" }}
+              variant="text"
+              color="accent"
+              href="/workshops"
+            >
+              <h2>Workshops</h2>
+            </Button>
+          </Stack>
+        </Container>
+      </AppBar>
+    </>
   );
 }
