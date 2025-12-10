@@ -1,8 +1,8 @@
 import Container from "@mui/material/Container";
 import OverBB from "./core-components/OverBB";
-import News from "./core-components/News";
 import Markets from "./core-components/Markets";
-import Editor from "./blog-components/Editor";
+import { Divider } from "@mui/material";
+import News from "./core-components/News";
 
 export default function Main() {
   return (
@@ -10,10 +10,13 @@ export default function Main() {
       <Container
         maxWidth="lg"
         component="main"
-        sx={{ display: "flex", flexDirection: "column", gap: 4 }}
+        sx={{ display: "flex", flexDirection: "column" }}
       >
-        {/* <News /> */}
+        <Divider sx={{ my: 4 }} />
+        <News />
+        <Divider sx={{ my: 4 }} />
         <Markets />
+        <Divider sx={{ my: 4 }} />
         <OverBB />
       </Container>
     </>

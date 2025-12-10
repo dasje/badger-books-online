@@ -3,7 +3,7 @@ import AppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import UpcycleIcon from "./UpcycleIcon";
-import { Divider, Stack } from "@mui/material";
+import { Divider, Stack, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 
 export default function AppAppBar() {
@@ -33,8 +33,43 @@ export default function AppAppBar() {
           <Link to="/">
             <UpcycleIcon />
           </Link>
-          <Button variant="text" color="accent" href="/blog">
+          <Container
+            sx={{
+              display: {
+                xs: "none", // 0px → hides on small screens
+                md: "block", // 900px+ → shows on medium and larger screens
+              },
+            }}
+          >
+            <Link to="/">
+              <Typography variant="h1" color="black">
+                Badger Books
+              </Typography>
+            </Link>
+          </Container>
+          <Button
+            sx={{ minWidth: "66px" }}
+            variant="text"
+            color="accent"
+            href="/blog"
+          >
             <h2>Blog</h2>
+          </Button>
+          <Button
+            sx={{ minWidth: "55px" }}
+            variant="text"
+            color="accent"
+            href="/webshop"
+          >
+            <h2>Shop</h2>
+          </Button>
+          <Button
+            sx={{ minWidth: "140px" }}
+            variant="text"
+            color="accent"
+            href="/workshops"
+          >
+            <h2>Workshops</h2>
           </Button>
         </Stack>
       </Container>

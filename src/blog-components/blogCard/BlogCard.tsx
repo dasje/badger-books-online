@@ -1,6 +1,5 @@
 import { CardMedia, Grid, Link, Typography } from "@mui/material";
 import { StyledCard, StyledCardContent, StyledTypography } from "./cardStyle";
-import { useEffect, useState } from "react";
 import { BlogType } from "../../assets/types";
 
 interface BlogCardProps {
@@ -13,11 +12,6 @@ interface BlogCardProps {
 export const BlogCard = (props: BlogCardProps) => {
   const { focusedCardIndex, handleFocus, handleBlur, item } = props;
   //   const [currentItem, setCurrentItem] = useState<BlogType>(item);
-
-  useEffect(() => {
-    console.log("b;ah", item);
-    //   setCurrentItem(item);
-  }, [item]);
 
   return (
     <Grid size={{ xs: 12, md: 6 }} key={props.focusedCardIndex}>

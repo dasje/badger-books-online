@@ -6,9 +6,8 @@ import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import { Alert, Modal } from "@mui/material";
-import UpcycleIcon from "../../core-components/UpcycleIcon";
-import { subsmitSubscription } from "../../db/funcs/submitSubscription";
 import CheckIcon from "@mui/icons-material/Check";
+import { createEntry } from "../../db/funcs/createEntry";
 
 export default function Subscribe() {
   const [open, setOpen] = React.useState(false);
@@ -34,9 +33,14 @@ export default function Subscribe() {
   const handleSubscribe = async () => {
     try {
       // TODO: Add validation here
-      const submitted = await subsmitSubscription(subscribeEmail, contactName);
+      const submitted = await createEntry("subscribers", {
+        email: subscribeEmail,
+        name: contactName,
+      });
       if (submitted) {
         setSuccess(true);
+        setSubscribeEmail("");
+        setContactName("");
       }
     } catch (error) {
       console.error("Subscription failed:", error);
@@ -71,12 +75,21 @@ export default function Subscribe() {
           }}
           sx={{ width: "250px", color: "accent" }}
           onChange={(e) => setSubscribeEmail(e.target.value)}
+          onKeyDown={(e: React.KeyboardEvent<HTMLDivElement>) => {
+            console.log(e.key);
+            if (e.key === "Enter") {
+              e.preventDefault();
+              handleOpen();
+            }
+          }}
         />
+
         <Button
           variant="text"
           size="small"
-          sx={{ flexShrink: 0, color: "accent" }}
+          sx={{ flexShrink: 0 }}
           onClick={handleOpen}
+          color="accent"
         >
           Subscribe
         </Button>
@@ -140,6 +153,15 @@ export default function Subscribe() {
                     }}
                     sx={{ width: "250px", color: "accent" }}
                     onChange={(e) => setContactName(e.target.value)}
+                    onKeyDown={async (
+                      e: React.KeyboardEvent<HTMLDivElement>,
+                    ) => {
+                      console.log(e.key);
+                      if (e.key === "Enter") {
+                        e.preventDefault();
+                        await handleSubscribe();
+                      }
+                    }}
                   />
                 </Typography>
                 <Typography id="modal-modal-conditions" sx={{ mt: 2 }}>

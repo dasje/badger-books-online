@@ -4,6 +4,11 @@ import {
   Button,
   CircularProgress,
   Container,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
   Stack,
   TextField,
   Typography,
@@ -39,8 +44,6 @@ function fileListToImageFiles(fileList: FileList): File[] {
 }
 
 export default function Editor() {
-  console.log("📌 Editor component rendered");
-
   const extensions = useExtensions({
     placeholder: "Add your content here...",
   });
@@ -52,6 +55,12 @@ export default function Editor() {
   const [blogDescription, setBlogDescription] = useState<string>("");
   const [mainImageUrl, setMainImageUrl] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
+
+  const [currentSiteSection, setCurrentSiteSection] = useState<string>("");
+
+  const handleSectionChange = (event: SelectChangeEvent) => {
+    setCurrentSiteSection(event.target.value as string);
+  };
 
   const handleNewImageFiles = useCallback(
     async (files: File[], insertPosition?: number) => {
@@ -146,6 +155,21 @@ export default function Editor() {
 
   return (
     <>
+      <Box sx={{ minWidth: 120 }}>
+        <FormControl fullWidth>
+          <InputLabel id="demo-simple-select-label">Section</InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={currentSiteSection}
+            label="Age"
+            onChange={handleSectionChange}
+          >
+            <MenuItem value={"markets"}>Markets</MenuItem>
+            <MenuItem value={"blog"}>New Blog</MenuItem>
+          </Select>
+        </FormControl>
+      </Box>
       <Container
         sx={{
           display: "flex",

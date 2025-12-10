@@ -1,15 +1,20 @@
 import { supabase } from "../client";
 
-export const fetchBlogById = async (id: string) => {
+export const fetchFirst = async (table: string) => {
   try {
     //   setError(null)
     const { data, error } = await supabase
-      .from("blogs")
+      .from(table)
       .select("*")
-      .eq("id", id);
+      .order("created_at", { ascending: false })
+      .limit(1);
     console.log(data);
     if (error) throw error;
-    return data;
+    if (data) {
+      return data;
+    } else {
+      return [];
+    }
   } catch (err) {
     return err;
   }

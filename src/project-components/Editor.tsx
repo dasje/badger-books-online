@@ -20,9 +20,9 @@ import {
   type RichTextEditorRef,
 } from "mui-tiptap";
 import EditorMenuControls from "./EditorMenuControls";
-import { createBlogPost } from "../db/funcs/createBlogPost";
 import { uploadFileToBucket } from "../db/funcs/uploadFileToBucket";
 import useExtensions from "./useExtensions";
+import { createEntry } from "../db/funcs/createEntry";
 
 const exampleContent = "";
 
@@ -136,12 +136,7 @@ export default function Editor() {
     setLoading(true);
     const htmlContent = rteRef.current?.editor?.getHTML() ?? "";
     setSubmittedContent(htmlContent);
-    createBlogPost(
-      blogTitle,
-      htmlContent,
-      mainImageUrl,
-      blogDescription,
-    ).finally(() => setLoading(false));
+    createEntry("projects", {}).finally(() => setLoading(false));
   };
 
   useEffect(() => {

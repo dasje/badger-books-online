@@ -8,8 +8,8 @@ import { Typography } from "@mui/material";
 export default function OverBB() {
   return (
     <Container maxWidth="lg">
-      <Typography>
-        <h2>{fixedSiteContent.OverBB.Title}</h2>
+      <Typography variant="h2" component="h2" gutterBottom>
+        {fixedSiteContent.OverBB.Title}
       </Typography>
       <Typography>{fixedSiteContent.OverBB.Text}</Typography>
     </Container>
