@@ -8,6 +8,7 @@ import {
   Typography,
   Card,
   CardContent,
+  Divider,
 } from "@mui/material";
 import { WorkshopType } from "./db/types/WorkshopTypes";
 import { fetchAll } from "./db/funcs/fetchAll";
@@ -166,10 +167,11 @@ export default function Workshops() {
 
   return (
     <>
+      <Divider sx={{ my: 4 }} />
       <Container
         maxWidth="lg"
         component="main"
-        sx={{ display: "flex", flexDirection: "column", gap: 4, pb: 4 }}
+        sx={{ display: "flex", flexDirection: "column", gap: 4, pb: 5 }}
       >
         <div>
           <Typography variant="h3" gutterBottom>

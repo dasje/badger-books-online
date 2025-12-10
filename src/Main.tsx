@@ -12,11 +12,10 @@ export default function Main() {
         component="main"
         sx={{ display: "flex", flexDirection: "column" }}
       >
-        <Divider sx={{ my: 4 }} />
         <News />
-        <Divider sx={{ my: 4 }} />
+
         <Markets />
-        <Divider sx={{ my: 4 }} />
+
         <OverBB />
       </Container>
     </>
