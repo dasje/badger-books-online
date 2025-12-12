@@ -1,7 +1,6 @@
 import Container from "@mui/material/Container";
 import OverBB from "./core-components/OverBB";
 import Markets from "./core-components/Markets";
-import { Divider } from "@mui/material";
 import News from "./core-components/News";
 
 export default function Main() {
@@ -13,9 +12,7 @@ export default function Main() {
         sx={{ display: "flex", flexDirection: "column" }}
       >
         <News />
-
         <Markets />
-
         <OverBB />
       </Container>
     </>

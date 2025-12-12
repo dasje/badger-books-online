@@ -10,6 +10,7 @@ import BlogEntry from "./blog-components/BlogEntry";
 import NewBlog from "./blog-components/NewBlog";
 import Admin from "./Admin";
 import Workshops from "./Workshops";
+import Shop from "./Shop";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/workshops" element={<Workshops />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/webshop" element={<Shop />} />
       </Routes>
       <footer>
         <Footer />

@@ -1,11 +1,9 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import Pagination from "@mui/material/Pagination";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
 import NavigateNextRoundedIcon from "@mui/icons-material/NavigateNextRounded";
-import { cardData } from "../assets/blogCardData";
 import { Link } from "@mui/material";
 
 const StyledTypography = styled(Typography)({
@@ -72,7 +70,7 @@ export default function Latest() {
         Latest
       </Typography>
       <Grid container spacing={8} columns={12} sx={{ my: 4 }}>
-        {cardData.map((article, index) => (
+        {/* {cardData.map((article, index) => (
           <Grid key={index} size={{ xs: 12, sm: 6 }}>
             <Link href={`/blog/${article.id}`} key={focusedCardIndex}>
               <Box
@@ -111,7 +109,7 @@ export default function Latest() {
               </Box>
             </Link>
           </Grid>
-        ))}
+        ))} */}
       </Grid>
 
       {/* // Pagination component commented out for future use

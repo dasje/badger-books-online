@@ -15,6 +15,13 @@ import {
   Typography,
 } from "@mui/material";
 import { Link } from "react-router-dom";
+import MenuIcon from "@mui/icons-material/Menu";
+import {
+  ArrowDropDown,
+  ArrowDropDownCircle,
+  DragHandle,
+  MenuBook,
+} from "@mui/icons-material";
 
 export default function AppAppBar() {
   const [open, setOpen] = React.useState(false);
@@ -35,22 +42,38 @@ export default function AppAppBar() {
           display: { xs: "block", sm: "none" },
         }}
       >
-        {/* <Stack
-          sx={{
-            justifyContent: "center",
-            alignItems: "center",
-            display: { xs: "block", sm: "none" },
-          }}
-        > */}
         <Button onClick={toggleDrawer(true)}>
-          <Typography variant="h4" color="black">
-            Badger
-          </Typography>
-          <UpcycleIcon />
-          <Typography variant="h4" color="black">
-            Books
-          </Typography>
+          <Stack
+            sx={{
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Stack
+              direction={"row"}
+              sx={{
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Typography variant="h4" color="black">
+                Badger
+              </Typography>
+              <UpcycleIcon />
+              <Typography variant="h4" color="black">
+                Books
+              </Typography>
+            </Stack>
+
+            <Typography color="black">
+              <Stack direction={"row"} sx={{ alignItems: "center" }}>
+                <MenuBook />
+                Menu
+              </Stack>
+            </Typography>
+          </Stack>
         </Button>
+
         <Drawer anchor="top" open={open} onClose={toggleDrawer(false)}>
           <List>
             <ListItem disablePadding>
