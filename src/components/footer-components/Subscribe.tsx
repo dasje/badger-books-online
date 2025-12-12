@@ -23,7 +23,7 @@ export default function Subscribe() {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 400,
+    width: { xs: 280, sm: 400 },
     bgcolor: "background.paper",
     border: "2px solid #000",
     boxShadow: 24,
@@ -164,7 +164,10 @@ export default function Subscribe() {
                     }}
                   />
                 </Typography>
-                <Typography id="modal-modal-conditions" sx={{ mt: 2 }}>
+                <Typography
+                  id="modal-modal-conditions"
+                  sx={{ mt: 2, textAlign: "justify" }}
+                >
                   By subscribing, you agree to receive occasional emails.
                   Subscription can be cancelled by emailing Badger Books, or by
                   clicking the unsubscribe link in any email.
