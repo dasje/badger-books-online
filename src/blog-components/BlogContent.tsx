@@ -34,9 +34,9 @@ export default function BlogContent(props: BlogContentProps) {
   };
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
+    <Box sx={{ display: "flex", flexDirection: "column", gap: 4, mt: 5 }}>
       <div>
-        <Typography variant="h1" gutterBottom>
+        <Typography variant="h4" gutterBottom>
           {title}
         </Typography>
         {byline && <Typography>{byline}</Typography>}

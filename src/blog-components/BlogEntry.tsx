@@ -1,9 +1,8 @@
 import * as React from "react";
 import Typography from "@mui/material/Typography";
-import { Container } from "@mui/material";
+import { Container, Divider } from "@mui/material";
 import parse from "html-react-parser";
 
-// import { cardData } from "../assets/blogCardData";
 import { useParams } from "react-router-dom";
 import { fetchById } from "../db/funcs/fetchById";
 
@@ -31,14 +30,17 @@ export default function BlogEntry() {
   const parsedContent = parse(blog.content);
 
   return (
-    <Container maxWidth="md" component="main">
-      <Typography variant="h1" gutterBottom>
-        {blog.title}
-      </Typography>
-      <Typography variant="subtitle1" gutterBottom>
-        {blog.date}
-      </Typography>
-      <Typography variant="body1">{parsedContent}</Typography>
-    </Container>
+    <>
+      <Divider sx={{ my: 4 }} />
+      <Container maxWidth="md" component="main" sx={{ mt: 5 }}>
+        <Typography variant="h5" gutterBottom>
+          {blog.title}
+        </Typography>
+        <Typography variant="subtitle1" gutterBottom>
+          {blog.date}
+        </Typography>
+        <Typography variant="body1">{parsedContent}</Typography>
+      </Container>
+    </>
   );
 }

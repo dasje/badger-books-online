@@ -174,7 +174,7 @@ export default function Workshops() {
         sx={{ display: "flex", flexDirection: "column", gap: 4, pb: 5 }}
       >
         <div>
-          <Typography variant="h3" gutterBottom>
+          <Typography variant="h4" gutterBottom>
             {fixedSiteContent.Workshops.WorkshopsTitle}
           </Typography>
           {fixedSiteContent.Workshops.WorkshopsByline && (
@@ -184,7 +184,7 @@ export default function Workshops() {
           )}
         </div>
         <div>
-          <Typography variant="h2" gutterBottom>
+          <Typography variant="h5" gutterBottom>
             {fixedSiteContent.Workshops.UpcomingWorkshops}
           </Typography>
           <Typography>
@@ -206,7 +206,7 @@ export default function Workshops() {
           </Grid>
         </div>
         <div>
-          <Typography variant="h2" gutterBottom>
+          <Typography variant="h5" gutterBottom>
             {fixedSiteContent.Workshops.PreviousWorkshops}
           </Typography>
           <Typography>
