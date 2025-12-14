@@ -11,6 +11,8 @@ import NewBlog from "./blog-components/NewBlog";
 import Admin from "./Admin";
 import Workshops from "./Workshops";
 import Shop from "./Shop";
+import Login from "./db/auth/Login";
+import ProtectedRoute from "./db/auth/ProtectedRoute";
 
 function App() {
   return (
@@ -25,8 +27,17 @@ function App() {
         <Route path="/blog/new" element={<NewBlog />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/workshops" element={<Workshops />} />
-        <Route path="/admin" element={<Admin />} />
         <Route path="/webshop" element={<Shop />} />
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <Admin />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="*" element={<Login />} />
       </Routes>
       <footer>
         <Footer />
