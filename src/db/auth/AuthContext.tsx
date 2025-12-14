@@ -20,14 +20,11 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
       const data = await fetchById("users", username.trim(), "username");
       const fetchedUser = data as UserType[];
 
-      console.log(fetchedUser, username, password);
-
       if (
         fetchedUser.length > 0 &&
         String(username.trim()) === String(fetchedUser[0].username) &&
         String(password.trim()) === String(fetchedUser[0].password)
       ) {
-        console.log("setting authenticated true");
         setIsAuthenticated(true);
         return true; // <-- properly returns from the function
       } else {

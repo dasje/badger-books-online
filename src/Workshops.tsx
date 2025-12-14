@@ -144,10 +144,6 @@ export default function Workshops() {
 
       const now = dayjs(new Date());
       workshops.forEach((workshop) => {
-        console.log({
-          workshopDate: new Date(workshop.date_from),
-          now: now,
-        });
         dayjs(workshop.date_from) >= now
           ? setUpcomingWorkshops([...upcomingWorkshops, workshop])
           : setPreviousWorkshops([...previousWorkshops, workshop]);
@@ -160,10 +156,6 @@ export default function Workshops() {
   useEffect(() => {
     workshopFetch();
   }, []);
-
-  useEffect(() => {
-    console.log({ upcomingWorkshops, previousWorkshops });
-  }, [upcomingWorkshops, previousWorkshops]);
 
   return (
     <>

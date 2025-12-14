@@ -21,7 +21,6 @@ export default function BlogContent(props: BlogContentProps) {
     React.useState<Array<BlogType>>(cardData);
 
   React.useEffect(() => {
-    console.log("props", cardData);
     setBlogContent(cardData);
   }, [cardData]);
 
