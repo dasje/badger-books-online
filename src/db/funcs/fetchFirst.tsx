@@ -8,7 +8,6 @@ export const fetchFirst = async (table: string) => {
       .select("*")
       .order("created_at", { ascending: false })
       .limit(1);
-    console.log(data);
     if (error) throw error;
     if (data) {
       return data;

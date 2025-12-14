@@ -32,7 +32,6 @@ function fileListToImageFiles(fileList: FileList): File[] {
   // types.
 
   return Array.from(fileList).filter((file) => {
-    console.log("Filtering file:", file);
     const mimeType = (file.type || "").toLowerCase();
     return mimeType.startsWith("image/");
   });
@@ -83,7 +82,6 @@ export default function Editor() {
   const handleDrop: NonNullable<EditorOptions["editorProps"]["handleDrop"]> =
     useCallback(
       (view, event, _slice, _moved) => {
-        console.log("🔥 Drop event fired", event);
         if (!(event instanceof DragEvent) || !event.dataTransfer) {
           return false;
         }

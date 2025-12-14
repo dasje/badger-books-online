@@ -12,7 +12,6 @@ export const fetchById = async (
       .from(table)
       .select("*")
       .eq(column, id);
-    console.log(data);
     if (error) throw error;
     return data;
   } catch (err) {

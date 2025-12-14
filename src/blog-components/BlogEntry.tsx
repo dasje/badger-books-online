@@ -8,7 +8,6 @@ import { fetchById } from "../db/funcs/fetchById";
 
 export default function BlogEntry() {
   let { blogId } = useParams<string>();
-  console.log("blogId", blogId);
 
   const [blog, setBlog] = React.useState<any>(null);
 

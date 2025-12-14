@@ -7,7 +7,6 @@ export const fetchAll = async (table: string) => {
       .from(table)
       .select("*")
       .order("created_at", { ascending: false });
-    console.log(data);
     if (error) throw error;
     if (data) {
       return data;

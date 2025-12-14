@@ -6,7 +6,6 @@ export const updateRow = async (
   updates: { [key: string]: any },
 ) => {
   try {
-    console.log("Updating row:", { table, id, updates });
     // const user = (await supabase.auth.getUser()).data.user;
     // if (!user) throw new Error("You must be logged in to create a post");
     if (!table || !id || !updates) throw new Error("All fields are required");
@@ -15,7 +14,6 @@ export const updateRow = async (
       .update(updates)
       .eq("id", id)
       .select();
-    console.log(data, error);
     if (error) throw error;
   } catch (err) {
     console.log(err);

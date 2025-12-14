@@ -13,7 +13,6 @@ const Login: React.FC = () => {
     e.preventDefault();
     await login(username, password).then((data) => {
       const res = data as boolean;
-      console.log(res);
       if (res === true) {
         navigate("/admin");
       } else {

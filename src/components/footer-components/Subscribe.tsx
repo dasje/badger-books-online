@@ -76,7 +76,6 @@ export default function Subscribe() {
           sx={{ width: "250px", color: "accent" }}
           onChange={(e) => setSubscribeEmail(e.target.value)}
           onKeyDown={(e: React.KeyboardEvent<HTMLDivElement>) => {
-            console.log(e.key);
             if (e.key === "Enter") {
               e.preventDefault();
               handleOpen();
@@ -156,7 +155,6 @@ export default function Subscribe() {
                     onKeyDown={async (
                       e: React.KeyboardEvent<HTMLDivElement>,
                     ) => {
-                      console.log(e.key);
                       if (e.key === "Enter") {
                         e.preventDefault();
                         await handleSubscribe();
