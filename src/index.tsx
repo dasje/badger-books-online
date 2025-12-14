@@ -5,17 +5,20 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import Themeify from "./Themeify";
+import { AuthProvider } from "./db/auth/AuthContext";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
 );
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Themeify>
-        <App />
-      </Themeify>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <Themeify>
+          <App />
+        </Themeify>
+      </BrowserRouter>
+    </AuthProvider>
   </React.StrictMode>,
 );
 
