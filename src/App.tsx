@@ -13,6 +13,7 @@ import Workshops from "./Workshops";
 import Shop from "./Shop";
 import Login from "./db/auth/Login";
 import ProtectedRoute from "./db/auth/ProtectedRoute";
+import WorkshopDetail from "./components/workshop-components/WorkshopDetail";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="/blog/new" element={<NewBlog />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/workshops" element={<Workshops />} />
+        <Route path="/workshops/:workshopId" element={<WorkshopDetail />} />
         <Route path="/webshop" element={<Shop />} />
         <Route path="/login" element={<Login />} />
         <Route

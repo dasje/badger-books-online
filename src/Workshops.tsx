@@ -4,11 +4,11 @@ import {
   Box,
   CardMedia,
   Grid,
-  Link,
   Typography,
   Card,
   CardContent,
   Divider,
+  Button,
 } from "@mui/material";
 import { WorkshopType } from "./db/types/WorkshopTypes";
 import { fetchAll } from "./db/funcs/fetchAll";
@@ -16,6 +16,7 @@ import { useEffect, useState } from "react";
 import dayjs from "dayjs";
 
 import { styled } from "@mui/material/styles";
+import { useNavigate } from "react-router-dom";
 
 export const StyledCard = styled(Card)(({ theme }) => ({
   display: "flex",
@@ -69,9 +70,14 @@ export const StyledTypography = styled(Typography)({
 
 function WorkshopCard(props: { item: WorkshopType }) {
   const { item } = props;
+  const nav = useNavigate();
   return (
-    <Grid size={{ xs: 12, md: 12 }} key={item.id}>
-      <Link href={``}>
+    <Button
+      onClick={() => {
+        nav(`/workshops/${item.id}`);
+      }}
+    >
+      <Grid size={{ xs: 12, md: 12 }} key={item.id}>
         <StyledCard
           variant="outlined"
           //   onFocus={() => handleFocus(0)}
@@ -123,8 +129,8 @@ function WorkshopCard(props: { item: WorkshopType }) {
             </Box>
           </StyledCardContent>
         </StyledCard>
-      </Link>
-    </Grid>
+      </Grid>
+    </Button>
   );
 }
 
@@ -197,28 +203,29 @@ export default function Workshops() {
             )}
           </Grid>
         </div>
-        <div>
-          <Typography variant="h5" gutterBottom>
-            {fixedSiteContent.Workshops.PreviousWorkshops}
-          </Typography>
-          <Typography>
-            {fixedSiteContent.Workshops.PreviousWorkshopsByline}
-          </Typography>
-          <Grid
-            container
-            spacing={2}
-            justifyContent="center"
-            alignItems="center"
-          >
-            {previousWorkshops.length === 0 ? (
-              <Box sx={{ height: 16 }}>Previous workshops details TBA </Box>
-            ) : (
-              previousWorkshops.map((workshop) => (
+
+        {previousWorkshops.length === 0 ? (
+          <></>
+        ) : (
+          <div>
+            <Typography variant="h5" gutterBottom>
+              {fixedSiteContent.Workshops.PreviousWorkshops}
+            </Typography>
+            <Typography>
+              {fixedSiteContent.Workshops.PreviousWorkshopsByline}
+            </Typography>
+            <Grid
+              container
+              spacing={2}
+              justifyContent="center"
+              alignItems="center"
+            >
+              {previousWorkshops.map((workshop) => (
                 <WorkshopCard key={workshop.id} item={workshop} />
-              ))
-            )}
-          </Grid>
-        </div>
+              ))}
+            </Grid>
+          </div>
+        )}
       </Container>
     </>
   );
