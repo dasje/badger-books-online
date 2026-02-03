@@ -101,7 +101,7 @@ export default function AppAppBar() {
                 sx={{ minWidth: "55px" }}
                 variant="text"
                 color="accent"
-                href="https://badgerbooks.nl/"
+                href="/webshop"
               >
                 <h2>Shop</h2>
               </Button>
@@ -172,7 +172,7 @@ export default function AppAppBar() {
               sx={{ minWidth: "55px" }}
               variant="text"
               color="accent"
-              href="https://badgerbooks.nl/"
+              href="/webshop"
             >
               <h2>Shop</h2>
             </Button>

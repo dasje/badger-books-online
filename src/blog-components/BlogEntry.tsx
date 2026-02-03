@@ -32,13 +32,15 @@ export default function BlogEntry() {
     <>
       <Divider sx={{ my: 4 }} />
       <Container maxWidth="md" component="main" sx={{ mt: 5 }}>
-        <Typography variant="h5" gutterBottom>
+        <Typography variant="h5" gutterBottom component={"div"}>
           {blog.title}
         </Typography>
-        <Typography variant="subtitle1" gutterBottom>
+        <Typography variant="subtitle1" gutterBottom component={"div"}>
           {blog.date}
         </Typography>
-        <Typography variant="body1">{parsedContent}</Typography>
+        <Typography variant="body1" component={"div"}>
+          {parsedContent}
+        </Typography>
       </Container>
     </>
   );

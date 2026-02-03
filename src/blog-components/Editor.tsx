@@ -310,7 +310,11 @@ export default function Editor() {
           </pre> */}
 
                 <Box mt={3}>
-                  <Typography variant="overline" sx={{ mb: 2 }}>
+                  <Typography
+                    variant="overline"
+                    sx={{ mb: 2 }}
+                    component={"div"}
+                  >
                     Read-only saved snapshot:
                   </Typography>
 

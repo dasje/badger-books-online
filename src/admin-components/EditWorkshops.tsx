@@ -150,7 +150,7 @@ export default function EditWorkshops() {
         maxWidth="md"
         sx={{ mb: 4, gap: 2, display: "flex", flexDirection: "column" }}
       >
-        <Typography variant="h2" gutterBottom>
+        <Typography variant="h2" gutterBottom component={"div"}>
           Edit Workshop
         </Typography>
         <InputLabel htmlFor="workshop-title" sx={{ color: "black" }}>
@@ -282,7 +282,7 @@ export default function EditWorkshops() {
         </Box>
       </Container>
       <Container maxWidth="md" sx={{ mb: 4 }}>
-        <Typography variant="h4" gutterBottom>
+        <Typography variant="h4" gutterBottom component={"div"}>
           Select Workshop to Edit
         </Typography>
         <Paper sx={{ height: 400, width: "100%" }}>

@@ -95,7 +95,7 @@ export default function EditMarkets() {
         maxWidth="md"
         sx={{ mb: 4, gap: 2, display: "flex", flexDirection: "column" }}
       >
-        <Typography variant="h2" gutterBottom>
+        <Typography variant="h2" gutterBottom component={"div"}>
           Edit Market
         </Typography>
         <InputLabel htmlFor="market-name" sx={{ color: "black" }}>

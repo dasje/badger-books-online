@@ -9,6 +9,7 @@
     "@mui/material": "^7.3.5",
     "@mui/x-data-grid": "^8.21.0",
     "@mui/x-date-pickers": "^8.21.0",
+    "@sumup/sdk": "^0.0.9",
     "@supabase/supabase-js": "^2.84.0",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
@@ -46,10 +47,12 @@
     "prettier": "^3.6.2",
     "prettier-eslint": "^16.4.2",
     "react": "^19.2.0",
+    "react-country-region-selector": "^4.0.5",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.9.6",
     "react-scripts": "5.0.1",
     "typescript": "^4.9.5",
+    "uuid4": "^2.0.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -77,6 +80,7 @@
     ]
   },
   "devDependencies": {
+    "@types/uuid4": "^2.0.3",
     "supabase": "^2.58.5"
   }
 }

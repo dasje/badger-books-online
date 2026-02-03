@@ -31,11 +31,6 @@ export default function Blog(props: { disableCustomTheme?: boolean }) {
           byline={fixedSiteContent.Blog.BlogByline}
           cardData={blogs}
         />
-        {/* <Latest /> */}
-
-        {/* <Button variant="contained" href="/blog/new">
-          Write a New Blog Post
-        </Button> */}
       </Container>
     </>
   );

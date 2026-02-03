@@ -66,7 +66,7 @@ export default function Latest() {
 
   return (
     <div>
-      <Typography variant="h2" gutterBottom>
+      <Typography variant="h2" gutterBottom component={"div"}>
         Latest
       </Typography>
       <Grid container spacing={8} columns={12} sx={{ my: 4 }}>

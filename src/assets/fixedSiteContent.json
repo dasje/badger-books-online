@@ -27,5 +27,9 @@
     "PreviousWorkshops": "Previous Workshops",
     "PreviousWorkshopsByline": "Find out about previous workshops I've run",
     "Description": "How the workshops work..."
+  },
+  "Webshop": {
+    "WebshopTitle": "Books, books, books!",
+    "WebshopByline": "Handmade diaries, notebooks, and books"
   }
 }

@@ -50,10 +50,15 @@ export default function Subscribe() {
   return (
     <Box sx={{ width: { xs: "100%", sm: "60%" } }}>
       {/* <UpcycleIcon /> */}
-      <Typography variant="body2" gutterBottom sx={{ fontWeight: 600, mt: 2 }}>
+      <Typography
+        variant="body2"
+        gutterBottom
+        sx={{ fontWeight: 600, mt: 2 }}
+        component={"div"}
+      >
         Join the newsletter
       </Typography>
-      <Typography variant="body2" sx={{ mb: 2 }}>
+      <Typography variant="body2" sx={{ mb: 2 }} component={"div"}>
         Subscribe for occasional updates. No spams ever!
       </Typography>
       <InputLabel htmlFor="email-newsletter" sx={{ color: "black" }}>

@@ -1,0 +1,22 @@
+export type CustomerType = {
+  first_name: string;
+  first_name_valid: boolean;
+  last_name: string;
+  last_name_valid: boolean;
+  email: string;
+  email_valid: boolean;
+  phone: string;
+  phone_valid: boolean;
+  city: string;
+  city_valid: boolean;
+  country: string;
+  country_valid: boolean;
+  addressLine1: string;
+  addressLine1_valid: boolean;
+  postalCode: string;
+  postalCode_valid: boolean;
+  addressLine2?: string;
+  addressLine2_valid?: boolean;
+  state?: string;
+  state_valid?: boolean;
+};

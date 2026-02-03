@@ -93,7 +93,7 @@ function WorkshopCard(props: { item: WorkshopType }) {
               aspectRatio: "16 / 9",
               borderBottom: "1px solid",
               borderColor: "divider",
-              width: "30%",
+              width: "100%",
             }}
           />
           <StyledCardContent>

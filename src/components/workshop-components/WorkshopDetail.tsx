@@ -59,7 +59,7 @@ export default function WorkshopDetail() {
             {/* <Grid container alignItems="center"> */}
             <StyledCardContent>
               <Box sx={{ flexGrow: 1, textAlign: "left" }}>
-                <Typography textAlign={"left"}>
+                <Typography textAlign={"left"} sx={{}}>
                   {workshop.description}
                 </Typography>
               </Box>
